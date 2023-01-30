@@ -7,4 +7,8 @@
     <select id="selectMapById" resultType="map">
         select id, name,age,email from user where id = #{id}
     </select>
+
+    <select id="selectPageVo" resultType="User">
+        select uid,username as name,email from user where age>#{age}
+    </select>
 </mapper>

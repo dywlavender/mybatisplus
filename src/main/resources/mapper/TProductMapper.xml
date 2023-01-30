@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baidu.mybatisplus.mapper.TProductMapper">
+
+    <resultMap id="BaseResultMap" type="com.baidu.mybatisplus.pojo.TProduct">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="name" column="NAME" jdbcType="VARCHAR"/>
+            <result property="price" column="price" jdbcType="INTEGER"/>
+            <result property="version" column="VERSION" jdbcType="INTEGER"/>
+            <result property="sex" column="sex" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,NAME,price,
+        VERSION,sex
+    </sql>
+    <insert id="insertBatch">
+        insert into t_product(id,NAME,price,
+        VERSION,sex)
+        values
+        <foreach collection="tProductCollection" item="item" separator=",">
+            (#{item.id,jdbcType=NUMERIC},#{item.name,jdbcType=VARCHAR},#{item.price,jdbcType=NUMERIC},
+            #{item.version,jdbcType=NUMERIC},#{item.sex,jdbcType=NUMERIC})
+        </foreach>
+    </insert>
+    <select id="selectAllByIdAfterAndId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_product
+        where
+        id > #{id,jdbcType=NUMERIC}
+        AND id = #{oldId,jdbcType=NUMERIC}
+    </select>
+    <update id="updateIdAndName">
+        update t_product
+        set id   = #{id,jdbcType=NUMERIC},
+            NAME = #{name,jdbcType=VARCHAR}
+    </update>
+</mapper>

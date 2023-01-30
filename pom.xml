@@ -43,7 +43,41 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.5.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.3.23</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
 
+　　　　<dependency>
+　　　　　　<groupId>org.slf4j</groupId>
+　　　　　　<artifactId>slf4j-api</artifactId>
+　　　　　　<version>1.7.36</version>
+　　　　　　<scope>compile</scope>
+　　　　</dependency>
+
+　　　　<dependency>
+　　　　　　<groupId>ch.qos.logback</groupId>
+　　　　　　<artifactId>logback-core</artifactId>
+　　　　　　<version>1.4.2</version>
+　　　　</dependency>
+
+　　　　<dependency>
+　　　　　　<groupId>ch.qos.logback</groupId>
+　　　　　　<artifactId>logback-classic</artifactId>
+　　　　　　<version>1.4.2</version>
+　　　　</dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>9.0.68</version>
+        </dependency>
 
     </dependencies>
 
